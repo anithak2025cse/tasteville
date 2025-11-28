@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TasteVille</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            background: #ff5733;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+        }
+
+        .menu-box {
+            background: white;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            background: #ff5733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        input, textarea, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 6px;
+            border: 1px solid gray;
+        }
+    </style>
+
+    <script>
+        function showPage(pageId) {
+            let pages = document.getElementsByClassName("page");
+            for (let p of pages) {
+                p.style.display = "none";
+            }
+            document.getElementById(pageId).style.display = "block";
+        }
+
+        function addToCart(item) {
+            alert(item + " added to cart!");
+        }
+
+        function submitFeedback() {
+            alert("Thank you! Your feedback has been submitted.");
+            showPage('home');
+        }
+    </script>
+</head>
+
+<body onload="showPage('home')">
+
+    <h1>TasteVille 🍽</h1>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('menu')">Menu</a>
+        <a href="#" onclick="showPage('feedback')">Feedback</a>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page">
+        <h2>Welcome to TasteVille</h2>
+        <p>Delicious food made with love ❤</p>
+    </div>
+
+    <!-- MENU PAGE -->
+    <div id="menu" class="page">
+        <h2>Menu</h2>
+
+        <div class="menu-box">
+            <h3>Pizza - ₹120</h3>
+            <button onclick="addToCart('Pizza')">Add to Cart</button>
+
+            <h3>Burger - ₹80</h3>
+            <button onclick="addToCart('Burger')">Add to Cart</button>
+
+            <h3>Fried Rice - ₹100</h3>
+            <button onclick="addToCart('Fried Rice')">Add to Cart</button>
+
+            <h3>Sandwich - ₹70</h3>
+            <button onclick="addToCart('Sandwich')">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- FEEDBACK PAGE -->
+    <div id="feedback" class="page">
+        <h2>Feedback</h2>
+
+        <label>Name:</label><br>
+        <input type="text"><br>
+
+        <label>Rate Us:</label><br>
+        <select>
+            <option>⭐</option>
+            <option>⭐⭐</option>
+            <option>⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐⭐</option>
+        </select><br>
+
+        <label>Your Feedback:</label><br>
+        <textarea rows="4"></textarea><br>
+
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <h2>About Us</h2>
+        <p>TasteVille serves fresh, tasty and affordable food.</p>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <h2>Contact</h2>
+        <p>Phone: 98765 43210<br>Email: support@tasteville.com</p>
+    </div>
+
+</body>
+</html>
